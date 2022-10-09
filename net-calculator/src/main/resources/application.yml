@@ -1,2 +1,10 @@
 server:
     port: 9001
+
+spring:
+    application:
+        name: net-calculator
+
+eureka:
+    instance:
+        hostname: localhost
