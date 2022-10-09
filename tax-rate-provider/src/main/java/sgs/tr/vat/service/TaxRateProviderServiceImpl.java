@@ -23,7 +23,7 @@ public class TaxRateProviderServiceImpl implements TaxRateProviderService {
 
     @Override
     public String provideVatRateByCountry(String countryIso) {
-        return countryVatRates.get(countryIso);
+        return countryVatRates.get(countryIso.toUpperCase());
     }
     
 }
