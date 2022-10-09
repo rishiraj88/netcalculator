@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import sgs.tr.vat.service.TaxRateProviderService;
 
+/**
+ * /tr Initial context for Tax Rate Provider service
+ */
 @RestController
 @RequestMapping("/tr")
 public class TaxRateProviderController {
@@ -15,6 +18,11 @@ public class TaxRateProviderController {
     @Autowired
     TaxRateProviderService taxRateProviderService;
     
+    /**
+     * To return the VAT rate applicable in the country identified by countryIso
+     * @param countryIso Country code
+     * @return Value added tax rate for the specified country
+     */
     @GetMapping("/{land}")
     public String provideVatRateByCountry(@PathVariable("land") String countryIso) {
         return taxRateProviderService.provideVatRateByCountry(countryIso);

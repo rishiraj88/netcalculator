@@ -21,6 +21,11 @@ public class TaxRateProviderServiceImpl implements TaxRateProviderService {
         countryVatRates.put("FN", "0.1675");   
     }
 
+    /**
+     * To retrieve the prevalent VAT rate for the specified country
+     * @param countryIso Country code
+     * @return VAT rate
+     */
     @Override
     public String provideVatRateByCountry(String countryIso) {
         return countryVatRates.get(countryIso.toUpperCase());

@@ -13,6 +13,10 @@ public class NetCalculatorApplication {
 		SpringApplication.run(NetCalculatorApplication.class, args);
 	}
 
+	/**
+	 * To facilitate interservice communication
+	 * @return
+	 */
 	@Bean
 	@LoadBalanced
 	public RestTemplate restTemplate() {

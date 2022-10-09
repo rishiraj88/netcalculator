@@ -1,21 +1,53 @@
 server:
-    port: 8999
+  port: 8999
 
+# Hostname for interservice communication
 eureka:
-    instance:
-        hostname: localhost
+  instance:
+    hostname: localhost
 
 spring:
-    application:
-        name: api-gateway
-    cloud:
-        gateway:
-            routes:
-            - id: net-calculator
-              uri: lb://net-calculator
-              predicates:
-                - Path=/nc/**
-            - id: tax-rate-provider
-              uri: lb://tax-rate-provider
-              predicates:
-                - Path=/tr/** 
+  # main:
+    # web-application-type: reactive
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: net-calculator
+          uri: lb://net-calculator
+          predicates:
+          - Path=/nc/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: net-calculator
+                fallbackUri: forward:/ncFallback
+        - id: tax-rate-provider
+          uri: lb://tax-rate-provider
+          predicates:
+          - Path=/tr/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: tax-rate-provider
+                fallbackUri: forward:/trFallback
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 5000
+
+ribbon:
+  ReadTimeout: 5000
+  ConnectTimeout: 5000
+
+# For Hystrix Dashboard, if to implement for monitoring
+# management:
+#   endpoints:
+#     web:
+#       exposure:
+#         include: hystrix.stream, health, info
