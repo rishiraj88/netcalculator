@@ -2,6 +2,8 @@ package gsg.nc.calc;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
 public class NetCalculatorApplication {
@@ -10,4 +12,8 @@ public class NetCalculatorApplication {
 		SpringApplication.run(NetCalculatorApplication.class, args);
 	}
 
+	@Bean
+	public RestTemplate restTemplate() {
+		return new RestTemplate();
+	}
 }

@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
 import gsg.nc.calc.service.NetCalculatorService;
 
@@ -17,8 +18,14 @@ public class NetCalculatorController {
     @Autowired
     private NetCalculatorService netCalculatorService;
 
+    @Autowired
+    private RestTemplate restTemplate;
+
     @GetMapping("/{land}/{gp}")
-    public BigDecimal calculateNetPrice(@PathVariable("gp") String grossPrice, @PathVariable("land") String countryIso) {
-        return netCalculatorService.calculateNetPrice(new BigDecimal(grossPrice),countryIso);
+    public double calculateNetPrice(@PathVariable("gp") String grossPrice, @PathVariable("land") String countryIso) {
+
+        String taxRate = this.restTemplate.getForObject("http://localhost:9002/tr/"+countryIso, String.class);
+
+        return netCalculatorService.calculateNetPrice(Double.parseDouble(grossPrice),taxRate);
     }
 }
