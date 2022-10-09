@@ -24,7 +24,7 @@ public class NetCalculatorController {
     @GetMapping("/{land}/{gp}")
     public double calculateNetPrice(@PathVariable("gp") String grossPrice, @PathVariable("land") String countryIso) {
 
-        String taxRate = this.restTemplate.getForObject("http://localhost:9002/tr/"+countryIso, String.class);
+        String taxRate = this.restTemplate.getForObject("http://tax-rate-provider/tr/"+countryIso, String.class);
 
         return netCalculatorService.calculateNetPrice(Double.parseDouble(grossPrice),taxRate);
     }
