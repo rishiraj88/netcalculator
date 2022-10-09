@@ -1,10 +1,12 @@
 server:
     port: 9002
 
+# Service name to show in Eureka
 spring:
     application:
         name: tax-rate-provider
 
+# Hostname for interservice communication
 eureka:
     instance:
         hostname: localhost

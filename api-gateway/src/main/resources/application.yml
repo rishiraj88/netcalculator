@@ -1,6 +1,7 @@
 server:
   port: 8999
 
+# Hostname for interservice communication
 eureka:
   instance:
     hostname: localhost
@@ -44,8 +45,9 @@ ribbon:
   ReadTimeout: 5000
   ConnectTimeout: 5000
 
-management:
-  endpoints:
-    web:
-      exposure:
-        include: hystrix.stream, health, info
+# For Hystrix Dashboard, if to implement for monitoring
+# management:
+#   endpoints:
+#     web:
+#       exposure:
+#         include: hystrix.stream, health, info

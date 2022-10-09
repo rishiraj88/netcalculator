@@ -1,10 +1,12 @@
 server:
     port: 9001
 
+# Service name to show in Eureka
 spring:
     application:
         name: net-calculator
 
+# Hostname for interservice communication
 eureka:
     instance:
         hostname: localhost
