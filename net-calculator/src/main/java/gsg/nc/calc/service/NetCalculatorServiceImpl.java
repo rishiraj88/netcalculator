@@ -1,9 +1,5 @@
 package gsg.nc.calc.service;
 
-import java.math.BigDecimal;
-import java.math.MathContext;
-import java.math.RoundingMode;
-
 import org.springframework.stereotype.Service;
 
 @Service
