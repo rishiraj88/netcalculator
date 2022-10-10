@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import gsg.nc.calc.exception.InvalidInputException;
+import gsg.nc.calc.exception.VatRateNotFoundException;
 
 @ControllerAdvice
 public class NetCalculatorControllerAdvice {
@@ -25,8 +26,8 @@ public class NetCalculatorControllerAdvice {
     return new ResponseEntity<String>("Gross price and tax rate must be in number format. For example, gross price = 100.00 and tax rate = 0.23 to signify 23% VAT rate.", HttpStatus.METHOD_NOT_ALLOWED);
   }
 
-  // @ExceptionHandler(IllegalStateException.class)
-  public ResponseEntity<String> handleIllegalStateException(IllegalStateException exception) {
+  @ExceptionHandler(VatRateNotFoundException.class)
+  public ResponseEntity<String> handleVatRateNotFoundException(VatRateNotFoundException exception) {
     return new ResponseEntity<String>("We may add the tax rate for the requested country in future.", HttpStatus.NOT_FOUND);
   }
 
