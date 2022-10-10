@@ -12,7 +12,6 @@ public class NetCalculatorServiceImpl implements NetCalculatorService {
      */
     @Override
     public double calculateNetPrice(double grossPrice, double taxRate) {
-        // grossPrice = -1.2;
         if(0.0 > grossPrice) {
             throw new InvalidInputException("001","Gross price must not be negative.");
         }

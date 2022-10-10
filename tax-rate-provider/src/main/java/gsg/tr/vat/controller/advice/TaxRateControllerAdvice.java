@@ -13,7 +13,7 @@ import gsg.tr.vat.exception.VatRateNotFoundException;
 public class TaxRateControllerAdvice {
   @ExceptionHandler(InvalidInputException.class)
   public ResponseEntity<String> handleInvalidInput(InvalidInputException exception) {
-    return new ResponseEntity<String>("Please check the previously entered inputs and try again.", HttpStatus.BAD_REQUEST);
+    return new ResponseEntity<String>("Please check the entered inputs and try again.", HttpStatus.BAD_REQUEST);
   }
 
   @ExceptionHandler(HttpRequestMethodNotSupportedException.class)
@@ -21,13 +21,24 @@ public class TaxRateControllerAdvice {
     return new ResponseEntity<String>("Only these HTTP methods are supported: GET", HttpStatus.METHOD_NOT_ALLOWED);
   }
 
-  // @ExceptionHandler(IllegalStateException.class)
-  public ResponseEntity<String> handleIllegalStateException(IllegalStateException exception) {
-    return new ResponseEntity<String>("We may add the tax rate for the requested country in future.", HttpStatus.NOT_FOUND);
-  }
   
   @ExceptionHandler(VatRateNotFoundException.class)
   public ResponseEntity<String> handleVatRateNotFoundException(VatRateNotFoundException exception) {
-    return new ResponseEntity<String>("We may add the tax rate for the requested country in future.", HttpStatus.NOT_FOUND);
+    return new ResponseEntity<String>("We may add the tax rate for the requested country soon.", HttpStatus.NOT_FOUND);
+  }
+
+  @ExceptionHandler(NullPointerException.class)
+  public ResponseEntity<String> handleNullPointerException(NullPointerException exception) {
+    return new ResponseEntity<String>("Some data is missing. We'll try to fix on server side.", HttpStatus.NOT_FOUND);
+  }
+
+  @ExceptionHandler(IllegalStateException.class)
+  public ResponseEntity<String> handleIllegalStateException(IllegalStateException exception) {
+    return new ResponseEntity<String>("We may add support for the requested country in future.", HttpStatus.NOT_FOUND);
+  }
+
+  @ExceptionHandler(Exception.class)
+  public ResponseEntity<String> handleException(Exception exception) {
+    return new ResponseEntity<String>("Something unexpected has happened. We'll fix it soon.", HttpStatus.NOT_FOUND);
   }
 }

@@ -11,7 +11,7 @@ import gsg.tr.vat.exception.VatRateNotFoundException;
 @Service
 public class TaxRateProviderServiceImpl implements TaxRateProviderService {
 
-    private static Map<String,String> countryVatRates = new HashMap<>();
+    private static final Map<String,String> countryVatRates = new HashMap<>();
 
     static {
         countryVatRates.put("DE","0.19");
