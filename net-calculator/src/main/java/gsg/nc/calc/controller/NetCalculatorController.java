@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+import gsg.nc.calc.exception.VatRateNotFoundException;
 import gsg.nc.calc.service.NetCalculatorService;
 
 /**
@@ -39,6 +40,9 @@ public class NetCalculatorController {
 
         // Communicating with Tax Rate Provider to get value added tax rate for specified country
         Double taxRate = this.restTemplate.getForObject("http://tax-rate-provider/tr/"+countryIso, Double.class);
+        if(null == taxRate) {
+            throw new VatRateNotFoundException("103", "VAT rate for the country "+ countryIso+" is not available.");
+        }
         Double netPrice = netCalculatorService.calculateNetPrice(grossPrice,taxRate);
         //return netPrice;
         return new ResponseEntity<Double>(netPrice, HttpStatus.OK);

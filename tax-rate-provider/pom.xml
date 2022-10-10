@@ -8,7 +8,7 @@
 		<version>2.7.4</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>sgs.tr</groupId>
+	<groupId>gsg.tr</groupId>
 	<artifactId>tax-rate-provider</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>tax-rate-provider</name>

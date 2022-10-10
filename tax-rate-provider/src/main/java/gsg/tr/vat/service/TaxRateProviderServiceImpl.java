@@ -1,9 +1,12 @@
-package sgs.tr.vat.service;
+package gsg.tr.vat.service;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.stereotype.Service;
+
+import gsg.tr.vat.exception.VatRateNotFoundException;
+
 
 @Service
 public class TaxRateProviderServiceImpl implements TaxRateProviderService {
