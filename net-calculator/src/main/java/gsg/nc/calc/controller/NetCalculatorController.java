@@ -3,6 +3,8 @@ package gsg.nc.calc.controller;
 import java.math.BigDecimal;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,11 +35,12 @@ public class NetCalculatorController {
      * @return netPrice the net price (= gross price - VAT)
      */
     @GetMapping("/{land}/{gp}")
-    public double calculateNetPrice(@PathVariable("gp") String grossPrice, @PathVariable("land") String countryIso) {
+    public ResponseEntity<Double> calculateNetPrice(@PathVariable("gp") Double grossPrice, @PathVariable("land") String countryIso) {
 
         // Communicating with Tax Rate Provider to get value added tax rate for specified country
-        String taxRate = this.restTemplate.getForObject("http://tax-rate-provider/tr/"+countryIso, String.class);
-        double netPrice = netCalculatorService.calculateNetPrice(Double.parseDouble(grossPrice),Double.parseDouble(taxRate));
-        return netPrice;
+        Double taxRate = this.restTemplate.getForObject("http://tax-rate-provider/tr/"+countryIso, Double.class);
+        Double netPrice = netCalculatorService.calculateNetPrice(grossPrice,taxRate);
+        //return netPrice;
+        return new ResponseEntity<Double>(netPrice, HttpStatus.OK);
     }
 }

@@ -27,8 +27,12 @@ public class TaxRateProviderServiceImpl implements TaxRateProviderService {
      * @return VAT rate
      */
     @Override
-    public String provideVatRateByCountry(String countryIso) {
-        return countryVatRates.get(countryIso.toUpperCase());
+    public Double provideVatRateByCountry(String countryIso) {
+        String vatRate = countryVatRates.get(countryIso.toUpperCase());
+        if(null == countryVatRates.get(countryIso.toUpperCase())) {
+            throw new VatRateNotFoundException("103", "VAT rate for the country "+ countryIso+" is not available.");
+        }
+        return Double.parseDouble(vatRate);
     }
     
 }
