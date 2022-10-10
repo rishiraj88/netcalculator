@@ -6,7 +6,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import gsg.tr.vat.service.TaxRateProviderService;
 
-
 @SpringBootTest
 class TaxRateProviderApplicationTests {
 
