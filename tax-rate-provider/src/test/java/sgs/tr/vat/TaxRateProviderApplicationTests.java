@@ -4,7 +4,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import sgs.tr.vat.service.TaxRateProviderService;
+import gsg.tr.vat.service.TaxRateProviderService;
+
 
 @SpringBootTest
 class TaxRateProviderApplicationTests {
