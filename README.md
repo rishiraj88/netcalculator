@@ -22,10 +22,10 @@ This service accesses <pre>taxRateProvider</pre> service which returns the curre
 It is a fully runnable (with mvn) and testable Java implementation along with the instructions required for a reviewer.
 
 ## Projects and Components
-- <pre>eureka</pre>: Eureka server for service discovery
-- <pre>api-gateway</pre>: to welcome incoming requests for services
-- <pre>net-calculator</pre>: to present the net price data to consumers
-- <pre>tax-rate-provider</pre>: to retrieve VAT rate for specified country
+- `eureka`: Eureka server for service discovery
+- `api-gateway`: to welcome incoming requests for services
+- `net-calculator`: to present the net price data to consumers
+- `tax-rate-provider`: to retrieve VAT rate for specified country
 
 ## Instructions for a Reviewer to Execute the Services
 
@@ -50,8 +50,8 @@ Hit the following URLs with a modern web browser or a REST client:
 - http://localhost:8999/tr/de
 
 The last two parts of URL paths signify the following semantics:
-<pre>de</pre> / <pre>fr</pre>: country codes
-<pre>129</pre> / <pre>1.39</pre>: gross prices
+`de` / `fr`: country codes
+`129` / `1.39`: gross prices
 
 In response, respective net prices are be returned. You may try other values of country code and gross price as well.
 
