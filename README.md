@@ -50,8 +50,8 @@ Hit the following URLs with a modern web browser or a REST client:
 - http://localhost:8999/tr/de
 
 The last two parts of URL paths signify the following semantics:
-`de` / `fr`: country codes
-`129` / `1.39`: gross prices
+- `de` / `fr`: country codes
+- `129` / `1.39`: gross prices
 
 In response, respective net prices are be returned. You may try other values of country code and gross price as well.
 
