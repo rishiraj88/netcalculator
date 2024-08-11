@@ -55,7 +55,7 @@ The last two parts of URL paths signify the following semantics:
 
 In response, respective net prices are be returned. You may try other values of country code and gross price as well.
 
-## For any queries, feel free to utilise the contact points at:
+## For any queries, feel free to contact at:
 - **LinkedIn:** <https://www.linkedin.com/in/rishirajopenminds>
 - **X:** <https://twitter.com/RishiRajDevOps>
 - **Start Page:** <https://bio.link/rishiraj49de>
