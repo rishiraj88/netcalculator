@@ -53,7 +53,7 @@ The last two parts of URL paths signify the following semantics:
 - `de` / `fr`: country codes
 - `129` / `1.39`: gross prices
 
-In response, respective net prices are be returned. You may try other values of country code and gross price as well.
+In response, respective net prices are be returned. You may try other values of country code and gross price as well. Also, we may together think over how to make this library more versatile as a value generator for clients.
 
 ## For any queries, feel free to contact at:
 - **LinkedIn:** <https://www.linkedin.com/in/rishirajopenminds>
