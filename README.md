@@ -58,6 +58,7 @@ In response, respective net prices are be returned. You may try other values of 
 ## Future Steps
 - Translate the app into Kotlin for JVM support.
 - Translate the app into Go (Golang) to appreciate performance gain, if any, just for fun.
+- Try to add more testing scenarios.
 
 ## For any queries, feel free to contact at:
 - **LinkedIn:** <https://www.linkedin.com/in/rishirajopenminds>
