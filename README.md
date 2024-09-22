@@ -56,8 +56,8 @@ The last two parts of URL paths signify the following semantics:
 In response, respective net prices are be returned. You may try other values of country code and gross price as well. Also, we may together think over how to make this library more versatile as a value generator for clients.
 
 ## Future Steps
-- Translate the app into Kotlin for JVM support.
-- Translate the app into Go (Golang) to appreciate performance gain, if any, just for fun.
+- Translate the app into Kotlin.
+- Translate the app into Go (Golang) to observe performance gain, if any (just for fun).
 - Try to add more testing scenarios.
 
 ## For any queries, feel free to contact at:
