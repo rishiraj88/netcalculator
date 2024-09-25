@@ -1,5 +1,5 @@
-# Net Calculator
-Net Calculator service (netcalculator) for any company which provides financial services across currencies, be it international or even worldwide. Developed with Java 17. It is a service which allows consumers to calculate the net price based on the input gross price and VAT (MWSt).
+# Net Price Calculator
+Net Price Calculator (netcalculator) as a web service for any company which provides financial services across currencies, be it international or even worldwide. Developed with Java 17. It is a service which allows consumers to calculate the net price based on the input gross price and VAT (MWSt).
 
 ## Calculation formula:
 The simplest interface for the net price formula expects two parameters from end users or integrated services:
